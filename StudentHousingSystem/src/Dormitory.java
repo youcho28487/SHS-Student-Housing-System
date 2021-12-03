@@ -15,16 +15,21 @@ public class Dormitory
 		storage = new Inventory(1, 1, 1, name);
 	}
 	
+	//return name of the dorm
 	public String toString()
 	{
 		return name;
 	}
 	
+	
+	//output dorm's inventory status
 	public void getInventory()
 	{
 		System.out.println(storage);
 	}
 	
+	
+	//transffer student to other dorm
 	public void transffer(Student stu, String location)
 	{
 		stu.setLocation(location);
@@ -32,17 +37,23 @@ public class Dormitory
 		count++;
 	}
 	
+	
+	//simply return count of the transffered student
 	public int transfferCount()
 	{
 		return count;
 	}
 	
+	
+	//add student to the black list
 	public void addBlackList(Student stu, String reason)
 	{
 		Blacklist newBL = new Blacklist(stu, reason);
 		blacklist.add(newBL);
 	}
 	
+	
+	//output blacklist of the dorm
 	public void blackList() 
 	{
 		for(int i=0; i<blacklist.size(); i++)
@@ -51,6 +62,8 @@ public class Dormitory
 		}
 	}
 
+	
+	//update the inventory of the dorm
 	public void updateInventory(int update, int change)
 	{
 		if(update == 1)
@@ -59,25 +72,31 @@ public class Dormitory
 		}
 		else if (update == 2)
 		{
-			storage.setTable(change);
+			storage.setBed(change);
 		}
 		else
 		{
-			storage.setBed(change);
+			storage.setTable(change);
 		}
 	}
 	
+	
+	//update history of the dorm
 	public void dormHistory(Student stu)
 	{
 		history.add(stu);
 		curr.add(stu);
 	}
 	
+	
+	//remove student from the list if student left
 	public void leaveDorm(Student stu)
 	{
 		curr.remove(stu);
 	}
 	
+	
+	//output dorm history
 	public void dormRecord()
 	{
 		System.out.println("past+current record");

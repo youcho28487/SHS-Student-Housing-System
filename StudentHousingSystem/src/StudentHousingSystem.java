@@ -10,30 +10,36 @@ public class StudentHousingSystem
 		boolean l = true;
 		
 		//test cases
-		Dormitory dorm = new Dormitory("location");
-		Dormitory dorm2 = new Dormitory("loc");
+		Dormitory dorm = new Dormitory("MacKay Residence");
+		Dormitory dorm2 = new Dormitory("Dunn Residence");
 		
-		Student Charles = new Student("Charles Darwin", 1, "location");
+		
+		
+		Student Charles = new Student("Charles Darwin", 1, "MacKay Residence");
 		list.add(Charles);
-		Student Mary = new Student("Mary Lucas", 2, "loc");
+		dorm.dormHistory(Charles);
+		Student Mary = new Student("Mary Lucas", 2, "MacKay Residence");
 		list.add(Mary);
-		Student Carl = new Student("Carl Buns", 3, "loc");
+		dorm.dormHistory(Mary);
+		Student Carl = new Student("Carl Buns", 3, "Dunn Residence");
 		dorm2.dormHistory(Carl);
-		dorm.transffer(Carl, "location");
+		dorm.transffer(Carl, "MacKay Residence");
 		dorm2.leaveDorm(Carl);
 		list.add(Carl);
-		
-		dorm.dormHistory(Charles);
-		dorm.dormHistory(Mary);
 		dorm.dormHistory(Carl);
 		
-		Student Corner = new Student("Corner Brook", 5, "location");
-		Student Kerry = new Student("Kerry Shepard", 6, "location");
+		//black list
+		Student Corner = new Student("Corner Brook", 5, "MacKay Residence");
+		Student Kerry = new Student("Kerry Shepard", 6, "MacKay Residence");
 		
 		dorm.addBlackList(Corner, "robbery");
-		dorm.addBlackList(Kerry, "Vaping");
+		dorm.addBlackList(Kerry, "Smoking in the room");
 		
+		
+		//welcome message
 		System.out.println("Welcome to SHS, Student Housing System");
+		
+		//loop until user says done
 		while(l)
 		{
 			//ask user to select the option
@@ -80,7 +86,7 @@ public class StudentHousingSystem
 		else if (input == 4)
 		{
 			System.out.println("Choose the room");
-			System.out.println("1:location, 2:loc");
+			System.out.println("1:McKay, 2:Dunn");
 			int ans = s.nextInt();
 			
 			if(ans==1)
@@ -146,7 +152,7 @@ public class StudentHousingSystem
 		else if(input == 7)
 		{
 			System.out.println("Choose the room");
-			System.out.println("1:location, 2:loc");
+			System.out.println("1:McKay, 2:Dunn");
 			int ans = s.nextInt();
 			
 			if(ans==1) {
@@ -170,7 +176,6 @@ public class StudentHousingSystem
 			}
 			
 			int id = s.nextInt();
-			list.get(id).keyHistory();
 			list.get(id).keyRecordPrint();
 			
 			trial.add("checked history of key");

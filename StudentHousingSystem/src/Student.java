@@ -22,25 +22,32 @@ public class Student
 		tag = createTag(idNum);
 	}
 	
+	//create key
 	public int createKey(int id)
 	{
 		key = id;
+		keyHistory();
 		
 		return key;
 	}
 	
+	//create tag, tag = id+10
 	public int createTag(int id)
 	{
 		tag = id + 10;
+		keyHistory();
 		
 		return tag;
 	}
 	
+	//record key history
 	public void keyHistory()
 	{
 		keyRecord.add("key:"+key+"/tag:"+tag);
 	}
 	
+	
+	//print the key record
 	public void keyRecordPrint()
 	{
 		for(int i=0; i<keyRecord.size(); i++)
@@ -49,17 +56,22 @@ public class Student
 		}
 	}
 	
+	
+	//change dorm
 	public void setLocation(String location)
 	{
 		this.location = location;
 		roomHistory(location);
 	}
 	
+	//add room history
 	public void roomHistory(String location)
 	{
 		history.add(location);
 	}
 	
+	
+	//output room occupation history
 	public void outputHistory()
 	{
 		System.out.println("History of room occupation");
