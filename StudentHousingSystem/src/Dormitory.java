@@ -5,7 +5,7 @@ public class Dormitory
 	public String name;
 	int count;
 	Inventory storage;
-	public List<String> blacklist = new ArrayList<>();
+	public List<Blacklist> blacklist = new ArrayList<>();
 	public List<Student> history = new ArrayList<>();
 	public List<Student> curr = new ArrayList<>();
 	
@@ -36,11 +36,11 @@ public class Dormitory
 	{
 		return count;
 	}
-
-	public void blackListAdd()
+	
+	public void addBlackList(Student stu, String reason)
 	{
-		blacklist.add("Tom Cat/Didn't pay the fee");
-		blacklist.add("Jerry Mouse/Smoking");
+		Blacklist newBL = new Blacklist(stu, reason);
+		blacklist.add(newBL);
 	}
 	
 	public void blackList() 

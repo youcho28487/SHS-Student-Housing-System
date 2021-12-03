@@ -9,6 +9,7 @@ public class StudentHousingSystem
 		Scanner s = new Scanner(System.in);
 		boolean l = true;
 		
+		//test cases
 		Dormitory dorm = new Dormitory("location");
 		Dormitory dorm2 = new Dormitory("loc");
 		
@@ -26,11 +27,16 @@ public class StudentHousingSystem
 		dorm.dormHistory(Mary);
 		dorm.dormHistory(Carl);
 		
-		dorm.blackListAdd();
+		Student Corner = new Student("Corner Brook", 5, "location");
+		Student Kerry = new Student("Kerry Shepard", 6, "location");
+		
+		dorm.addBlackList(Corner, "robbery");
+		dorm.addBlackList(Kerry, "Vaping");
 		
 		System.out.println("Welcome to SHS, Student Housing System");
 		while(l)
 		{
+			//ask user to select the option
 		System.out.println("Select your option");
 		System.out.println("1. See all students");
 		System.out.println("2. Number of student transferred");
@@ -44,6 +50,7 @@ public class StudentHousingSystem
 		System.out.print("--->");
 		int input = s.nextInt();
 		
+		//output list of student
 		if(input == 1)
 		{
 			for(int i=0; i<list.size(); i++)
@@ -53,6 +60,7 @@ public class StudentHousingSystem
 			
 			trial.add("Checked list of student");
 		}
+		//output number of student transffered
 		else if (input == 2)
 		{
 			int trans = dorm.transfferCount();
@@ -61,12 +69,14 @@ public class StudentHousingSystem
 			
 			trial.add("check number of student transferred");
 		}
+		//output black list
 		else if(input == 3)
 		{
 			dorm.blackList();
 			
 			trial.add("checked black list of the dorm");
 		}
+		//chagne inventory
 		else if (input == 4)
 		{
 			System.out.println("Choose the room");
@@ -107,6 +117,7 @@ public class StudentHousingSystem
 			}
 			trial.add("updated inventory");
 		}
+		//check student history
 		else if(input == 5)
 		{
 			System.out.println("Select student");
@@ -121,6 +132,7 @@ public class StudentHousingSystem
 			
 			trial.add("checked student's full history of the room");
 		}
+		//output all transaction history
 		else if (input == 6)
 		{
 			System.out.println("All history of transaction");
@@ -130,6 +142,7 @@ public class StudentHousingSystem
 				System.out.println(trial.get(i));
 			}
 		}
+		//output history of the room
 		else if(input == 7)
 		{
 			System.out.println("Choose the room");
@@ -146,6 +159,7 @@ public class StudentHousingSystem
 			
 			trial.add("Checked dorm record");
 		}
+		//output key history
 		else if(input == 8)
 		{
 			System.out.println("Select student");
@@ -161,12 +175,15 @@ public class StudentHousingSystem
 			
 			trial.add("checked history of key");
 		}
+		//any other number will finish the program
 		else
 		{
 			System.out.println("Thank you for using");
 			l = false;
 		}
 		
+		System.out.println("\n");
 	}
+
 	}
 }
